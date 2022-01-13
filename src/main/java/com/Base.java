@@ -1,4 +1,5 @@
 package com;
+import com.codeborne.selenide.SelenideElement;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 
@@ -12,6 +13,10 @@ public class Base {
                 .setContentType(JSON)
                 .setBaseUri(BASE_URL)
                 .build();
+    }
+
+    public static void scrollToElement(SelenideElement s){
+        s.scrollTo();
     }
 
 }
