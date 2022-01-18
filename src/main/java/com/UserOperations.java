@@ -13,11 +13,17 @@ public class UserOperations {
 
     public static final String EMAIL_POSTFIX = "@yandex.ru";
 
-    /*
-     метод регистрации нового пользователя
-     возвращает мапу с данными: имя, пароль, имэйл
-     если регистрация не удалась, возвращает пустую мапу
-     */
+    public static Map<String, String> getRandomData(){
+        String email = RandomStringUtils.randomAlphabetic(10) + EMAIL_POSTFIX;
+        String password = RandomStringUtils.randomAlphabetic(10);
+        String name = RandomStringUtils.randomAlphabetic(10);
+        Map<String, String> inputDataMap = new HashMap<>();
+        inputDataMap.put("email", email);
+        inputDataMap.put("password", password);
+        inputDataMap.put("name", name);
+        return inputDataMap;
+    }
+
     public Map<String, String> register() {
 
         // с помощью библиотеки RandomStringUtils генерируем имэйл
