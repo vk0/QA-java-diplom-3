@@ -14,7 +14,7 @@ public class AccountPage {
     private SelenideElement exitButton;
     @FindBy(how = How.XPATH,using = ".//p[text()='Конструктор']")
     private SelenideElement constructorLink;
-    private By logoLinks = By.xpath(".//a[@href='/']");
+    private By logoLinks = By.xpath(".//div[@class='AppHeader_header__logo__2D0X2']/a");
 
     public LoginPage exit(){
         exitButton.click();
@@ -35,7 +35,7 @@ public class AccountPage {
     }
 
     public MainPage moveToConstructorByLogo(){
-        Selenide.$$(logoLinks).get(1).click();
+        Selenide.$(logoLinks).click();
         return Selenide.page(MainPage.class);
     }
 
