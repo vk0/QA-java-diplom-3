@@ -1,16 +1,16 @@
 package com;
 
-import com.pages.LoginPage;
 import com.pages.MainPage;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static com.Base.MAIN_PAGE_URL;
 import static com.codeborne.selenide.Selenide.open;
 
 public class ConstructorTest {
     @Test
     public void constructorTabsClickTest(){
-        MainPage mainPage = open("https://stellarburgers.nomoreparties.site", MainPage.class);
+        MainPage mainPage = open(MAIN_PAGE_URL, MainPage.class);
         Assert.assertTrue(mainPage.isVisibleTabs());
     }
 }

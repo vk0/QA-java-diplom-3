@@ -43,8 +43,6 @@ public class MainPage {
     @FindBy(how = How.XPATH,using = ".//h2[text()='Начинки']")
     private SelenideElement nacinMarker;
 
-
-
     public LoginPage moveToLoginPageFromAccount(){
         loginLink.click();
         return Selenide.page(LoginPage.class);
@@ -56,8 +54,12 @@ public class MainPage {
     }
 
     public boolean isVisibleConfirmOrder(){
-        SelenideElement i = confirmOrderButton.shouldBe(Condition.visible);
-        return true;
+        try {
+            confirmOrderButton.shouldBe(Condition.visible);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
     }
 
     public AccountPage moveToAccount(){
